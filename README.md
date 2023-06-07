@@ -6,7 +6,7 @@
 <br>
 
 <div align="center">
-   <a href="https://ahlam-alsaffarini.github.io/FAQ/">Demo </a>
+   <a href="https://ahlam-alsaffarini.github.io/Article-preview/">Demo </a>
 </div>
 
 <div align="center">
