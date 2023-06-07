@@ -1,0 +1,382 @@
+/* okay here 1st start with main colors and main font size and so on  */
+:root {
+  /* Colors */
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+  /* body copy  */
+
+  /* Weights: 500, 700 */
+}
+/* second select all and normalize them  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* third make center of div in body  */
+body {
+  display: grid;
+  place-items: center;
+  position: relative;
+  min-height: 100dvh;
+  font-family: "Manrope", "sans-serif";
+  padding: 50px 0;
+  background-color: var(--Light-Grayish-Blue);
+  color: var(--Very-Dark-Grayish-Blue);
+}
+/* for big screen  */
+@media (min-width: 45em) {
+  body {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    align-items: end;
+  }
+}
+/* now 4th lets make the loading page  */
+.loading {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  z-index: 2;
+}
+/* give main styles for each dot  */
+.dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: hsl(186.15deg 100% 65.54%);
+  box-shadow: 0 0 10px 0 #909090;
+}
+/* given animation and transform origin for each dot  */
+.one {
+  margin-right: 5px;
+  transform-origin: center left;
+  animation: up-down 1s linear infinite;
+}
+
+.two {
+  margin-right: 5px;
+  animation: up-down 1s linear infinite;
+  transform-origin: center center;
+  animation-delay: 0.25s;
+}
+
+.three {
+  transform-origin: center center;
+  animation: up-down 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+/* the animation  */
+@keyframes up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* 5th lets make the main  */
+.main {
+  background-color: white;
+  place-content: center;
+  place-items: center;
+  margin: 0 20px;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0px 5px 8px 0px #c1c1c1;
+}
+@media (min-width: 45em) {
+  .main {
+    flex-direction: row;
+    max-width: 730px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+  }
+}
+/* styling the img  */
+.main .img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+.main .img img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  filter: brightness(0.95);
+  cursor: pointer;
+}
+/* img for large screen  */
+@media (min-width: 45em) {
+  .main .img img {
+    height: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    object-position: left;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+}
+
+/* lets dont forget to create for ovelay and popup  */
+.popup-overlay {
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.7);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10001;
+}
+.popup-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 10002;
+  border-radius: 8px;
+}
+.popup-box img {
+  max-width: 100%;
+  filter: brightness(0.95);
+}
+.img-close {
+  position: fixed;
+  right: -30px;
+  top: -30px;
+  font-size: 25px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "FontAwesome";
+  background-color: hsl(186.15deg 100% 65.54%);
+  color: white;
+}
+/* 6th the content  */
+.main .content {
+  padding: 0 30px;
+  line-height: 1.6;
+}
+.main .content h3 {
+  font-weight: 700;
+  font-size: 21px;
+  padding-top: 25px;
+}
+.main .content > p {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 10px 10px 0px;
+  color: var(--Desaturated-Dark-Blue);
+}
+/* 7th the buttom of .content which has the info about user and the sharing  */
+.main .content > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 20px 0;
+}
+/* info of user  */
+.main .about {
+  display: flex;
+  gap: 15px;
+}
+
+.main .about img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+.main .about .name {
+  font-weight: 700;
+  font-size: 14px;
+}
+.main .about .birthday {
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--Desaturated-Dark-Blue);
+}
+/* 8th the sharing icon  */
+.main .content .share .share-icon {
+  color: var(--Desaturated-Dark-Blue);
+  cursor: pointer;
+  line-height: 28px;
+  width: 35px;
+  height: 35px;
+  background-color: var(--Light-Grayish-Blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+  z-index: 1;
+  position: relative;
+  border-radius: 50%;
+}
+/* links inside sharing  */
+.main .content .links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--Very-Dark-Grayish-Blue);
+  color: white;
+  padding: 10px 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  align-items: center;
+  gap: 6px;
+  width: 122%;
+  bottom: 0;
+  top: 0;
+  font-size: 25px;
+  display: none;
+}
+.main .content .links.open {
+  display: flex;
+}
+/* word SHARE in links  */
+.main .content .links > span {
+  letter-spacing: 5px;
+  color: var(--Grayish-Blue);
+  font-size: 12px;
+}
+/* styling each link  */
+.main .content .links a {
+  text-decoration: none;
+  padding: 2px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+/* now for the large screen  */
+@media (min-width: 45em) {
+  .main .content > p {
+    font-size: 13px;
+  }
+  .main .content .share {
+    position: relative;
+  }
+  .main .content .share .share-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 50%;
+  }
+  .main .content .links {
+    top: -65px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: auto;
+    font-size: initial;
+    bottom: auto;
+    height: 48px;
+  }
+  .main .content .links::before {
+    content: " ";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-color: var(--Very-Dark-Grayish-Blue) transparent transparent
+      transparent;
+  }
+}
+/* 9th the color for each link when hover on it  */
+.main .content .links a.facebook:hover {
+  color: #007bb6;
+}
+.main .content .links a.twitter:hover {
+  color: #00aced;
+}
+.main .content .links a.instagram:hover {
+  color: #dab40b;
+}
+.main .content .links a.youtube:hover {
+  color: #bb0000;
+}
+
+/* 10th now lets make when click on link  do loading then do check */
+.main .content .links a .loading-share {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  align-items: center;
+  background: var(--Very-Dark-Grayish-Blue);
+}
+.main .content .links a .loading-share.active {
+  display: flex;
+}
+.main .content .links a .loading-share .dot-rotate {
+  display: inline-block;
+  animation: rotating 1s linear infinite;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.main .content .links a .fa-check {
+  display: none;
+}
+@media (min-width: 45em) {
+  .main .content .links a .loading-share .dot-rotate {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* lets make the attribution style  */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 10px 0;
+}
+.attribution a {
+  text-decoration: none;
+  color: hsl(186.15deg 100% 65.54%);
+}
+.attribution a:visited {
+  color: var(--Grayish-Blue);
+}
