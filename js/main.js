@@ -1,7 +1,7 @@
 // make a time for loading page
 setTimeout(() => {
   document.querySelector(".loading").style.display = "none";
-}, 2000);
+}, 500);
 
 //show links when its click
 let share = document.querySelector(".share-icon");
